@@ -5,15 +5,15 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const port = process.env.PORT || 3000
 
-var corsOptions = {
-  origin: 'https://turtletime-blog.surge.sh',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// var corsOptions = {
+//   origin: 'https://turtletime-blog.surge.sh',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 app.disable('x-powered-by')
 app.use(morgan('dev'))
 app.use(bodyParser.json())
-app.use(cors(corsOptions))
+app.use(cors())
 
 const blogPosts = require('./router/routes')
 app.use('/posts', blogPosts)
